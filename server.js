@@ -2,7 +2,7 @@ import crypto from 'node:crypto';
 import { promisify } from 'node:util';
 import express from 'express';
 import { MongoClient } from 'mongodb';
-import { readFile } from 'node:fs/promises';
+import { readFileSync } from 'node:fs';
 
 const scrypt = promisify(crypto.scrypt);
 
@@ -14,7 +14,7 @@ let mongoUri = process.env.MONGODB_URI;
 
 if (!mongoUri) {
   try {
-    mongoUri = (await readFile('.env', 'utf8'))
+    mongoUri = readFileSync('.env', 'utf8')
       .match(/^MONGODB_URI=(.+)$/m)?.[1]?.trim();
   } catch (_) {
     // Environment variables remain supported
