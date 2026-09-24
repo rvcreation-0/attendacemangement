@@ -1,0 +1,15 @@
+{
+  "name": "webcraft-attendance",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "mongodb": "^6.18.0",
+    "serverless-http": "^4.0.0"
+  }
+}
